@@ -40,7 +40,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         turn = 0
         turnLabel.text = "\(turn) times"
         targetNumber = Int(arc4random_uniform(UInt32(max + 1)))
-        println("The random number to guess is: \(targetNumber)") // for debug
+        println("The number to guess is: \(targetNumber)") // for debug
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
@@ -75,7 +75,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         super.touchesBegan(touches, withEvent: event)
         
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     override func didReceiveMemoryWarning() {
