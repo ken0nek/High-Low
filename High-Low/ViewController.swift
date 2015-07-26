@@ -10,14 +10,14 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var messageLabel: UILabel!
-    @IBOutlet weak var turnLabel: UILabel!
-    @IBOutlet weak var inputField: UITextField!
+    @IBOutlet private weak var messageLabel: UILabel!
+    @IBOutlet private weak var turnLabel: UILabel!
+    @IBOutlet private weak var inputField: UITextField!
     
-    let max = 100
-    var targetNumber = 0
-    var turn = 0
-    var continueGuessing = true
+    private let max = 100
+    private var targetNumber = 0
+    private var turn = 0
+    private var continueGuessing = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         initialize()
     }
     
-    func initialize() {
+    private func initialize() {
         continueGuessing = true
         messageLabel.text = ""
         inputField.placeholder = "Enter a number between 0 and \(max)."
@@ -82,7 +82,5 @@ class ViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
