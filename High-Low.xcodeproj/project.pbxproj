@@ -156,6 +156,8 @@
 		4A489F2F1A80D3D000EBDFAB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Ken Tominaga";
 				TargetAttributes = {
@@ -405,6 +407,7 @@
 				4A489F581A80D3D000EBDFAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4A489F591A80D3D000EBDFAB /* Build configuration list for PBXNativeTarget "High-LowTests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +416,7 @@
 				4A489F5B1A80D3D000EBDFAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
