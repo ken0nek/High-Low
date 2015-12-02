@@ -43,24 +43,25 @@ class ViewController: UIViewController, UITextFieldDelegate {
         print("The number to guess is: \(targetNumber)") // for debug
     }
     
+    // MARK: - UITextFieldDelegate
+    
     func textFieldDidEndEditing(textField: UITextField) {
-        if let text = textField.text, inputNumber = Int(text) {
-            if inputNumber >= 0 && inputNumber <= max {
-                if inputNumber < targetNumber {
-                    messageLabel.text = "Higher!"
-                } else if inputNumber > targetNumber {
-                    messageLabel.text = "Lower!"
-                } else {
-                    messageLabel.text = "Correct!"
-                    continueGuessing = false
-                }
-                
-                turn++
-                turnLabel.text = "\(turn) times"
-            } else {
-                messageLabel.text = "Invalid"
-            }
+        guard let text = textField.text, inputNumber = Int(text) where inputNumber >= 0 && inputNumber <= max else {
+            messageLabel.text = "Invalid"
+            return
         }
+        
+        if inputNumber < targetNumber {
+            messageLabel.text = "Higher!"
+        } else if inputNumber > targetNumber {
+            messageLabel.text = "Lower!"
+        } else {
+            messageLabel.text = "Correct!"
+            continueGuessing = false
+        }
+        
+        turn++
+        turnLabel.text = "\(turn) times"
     }
     
     func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
