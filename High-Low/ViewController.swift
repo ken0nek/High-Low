@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+final class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var turnLabel: UILabel!
@@ -28,7 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         initialize()
     }
 
-    @IBAction func startGame(sender: UIButton) {
+    @IBAction func startGame() {
         initialize()
     }
     
@@ -45,8 +45,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     // MARK: - UITextFieldDelegate
     
-    func textFieldDidEndEditing(textField: UITextField) {
-        guard let text = textField.text, inputNumber = Int(text) where inputNumber >= 0 && inputNumber <= max else {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text, let inputNumber = Int(text) , inputNumber >= 0 && inputNumber <= max else {
             messageLabel.text = "Invalid"
             return
         }
@@ -60,21 +60,21 @@ class ViewController: UIViewController, UITextFieldDelegate {
             continueGuessing = false
         }
         
-        turn++
+        turn += 1
         turnLabel.text = "\(turn) times"
     }
     
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return continueGuessing
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        super.touchesBegan(touches, withEvent: event)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
         
         view.endEditing(true)
     }
@@ -84,4 +84,3 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
 }
-
